@@ -9,15 +9,15 @@ export class BinaryOp {
 
 export class UnaryOp {
     constructor(token, expr) {
-        tthis.op = token;
+        this.op = token;
         this.expr = expr;
     }
 }
 
 export class Num {
     constructor(token) {
-        this.token = this.op = token;
-        this.value = parseFloat(this.token.value);
+        this.op = token;
+        this.value = parseFloat(this.op.value);
     }
 }
 

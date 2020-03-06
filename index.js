@@ -7,9 +7,9 @@ import { Interpreter } from './app/compiler/lib/interpreter';
 const appDiv = document.getElementById('app');
 appDiv.innerHTML = `<h1>JS Starter</h1>`;
 
-let str = '14 + 2';
+let str = '14 + 2 * (4 - - 6) / 2';
 
-const lex7 = new Lexer(str);
+const lex7 = new Lexer(str); 
 
 const parser = new Parser(lex7);
 

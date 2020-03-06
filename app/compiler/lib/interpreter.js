@@ -15,12 +15,11 @@ export class Interpreter extends NodeVisitor {
     } else if (node.op.type === TOKEN_TYPE.MUL) {
       return this.visit(node.left) * this.visit(node.right);
     } else if (node.op.type === TOKEN_TYPE.DIV) {
-      return this.visit(node.left) * this.visit(node.right);
+      return this.visit(node.left) / this.visit(node.right);
     }
   }
 
   visit_Num(node) {
-    debugger
     return node.value;
   }
 
@@ -35,7 +34,6 @@ export class Interpreter extends NodeVisitor {
 
   interpret() {
     const tree = this.parser.parse();
-   debugger;
     return this.visit(tree);
   }
 }

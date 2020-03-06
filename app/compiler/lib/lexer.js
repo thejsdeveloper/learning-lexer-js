@@ -8,7 +8,6 @@ export class Lexer {
   }
 
   advance() {
-
     if (this.pos < this.str.length - 1) {
       this.pos++;
       this.currentChar = this.str.charAt(this.pos);
@@ -36,8 +35,6 @@ export class Lexer {
     }
 
     const num = this.str.substring(start, this.pos);
-
-    debugger;
     return num;
   }
 
