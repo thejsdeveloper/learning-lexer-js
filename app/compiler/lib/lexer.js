@@ -8,10 +8,12 @@ export class Lexer {
   }
 
   advance() {
-    this.pos++;
+
     if (this.pos < this.str.length - 1) {
+      this.pos++;
       this.currentChar = this.str.charAt(this.pos);
     } else {
+      this.pos++;
       this.currentChar = null;
     }
   }
