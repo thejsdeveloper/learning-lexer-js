@@ -12,7 +12,7 @@ export class Parser {
         this.currentToken = this.lexer.getNextToken();
     }
 
-    eat(tokeyType) {
+    eat(tokenType) {
 
         if (this.currentToken.type === tokenType) {
             this.currentToken = this.lexer.getNextToken()
@@ -28,21 +28,21 @@ export class Parser {
     */
     factor() {
 
-        const token = thsi.currentToken;
+        const token = this.currentToken;
 
-        if (this.currentToken.type === TOKEN_TYPE.PLUS) {
+        if (token.type === TOKEN_TYPE.PLUS) {
             this.eat(TOKEN_TYPE.PLUS);
             const node = new UnaryOp(token, this.factor())
             return node;
-        } else if (token.tokenType === TOKEN_TYPE.MINUS) {
+        } else if (token.type === TOKEN_TYPE.MINUS) {
             this.eat(TOKEN_TYPE.MINUS);
             const node = new UnaryOp(token, this.factor())
             return node;
-        } else if (token.tokenType === TOKEN_TYPE.INTEGER) {
+        } else if (token.type === TOKEN_TYPE.INTEGER) {
             this.eat(TOKEN_TYPE.INTEGER);
             const node = new Num(token);
             return node
-        } else if (token.tokenType === TOKEN_TYPE.LPREN) {
+        } else if (token.type === TOKEN_TYPE.LPREN) {
             this.eat(TOKEN_TYPE.LPREN);
             const node = this.expr();
             this.eat(TOKEN_TYPE.RPREN);
@@ -58,35 +58,38 @@ export class Parser {
         let node = this.factor();
 
         while (
-            this.currentToken.tokenType === TOKEN_TYPE.MUL ||
-            this.currentToken.tokenType === TOKEN_TYPE.DIV
+           this.currentToken.type === TOKEN_TYPE.MUL ||
+           this.currentToken.type === TOKEN_TYPE.DIV
         ) {
             const token = this.currentToken;
-            if (token.tokenType === TOKEN_TYPE.MUL) {
+            if (token.type === TOKEN_TYPE.MUL) {
                 this.eat(TOKEN_TYPE.MUL);
             }
 
-            if (token.tokenType === TOKEN_TYPE.DIV) {
+            if (token.type === TOKEN_TYPE.DIV) {
                 const token = this.currentToken;
                 this.eat(TOKEN_TYPE.DIV);
             }
             node = new BinaryOp(node, token, this.factor());
         }
+
+        return node;
     }
     /**
        * expr: term ((PLUS | MINUS) term)*
        */
     expr() {
+   
         let node = this.term();
         while (
-            this.currentToken.tokenType === TOKEN_TYPE.PLUS ||
-            this.currentToken.tokenType === TOKEN_TYPE.MINUS
+           this.currentToken.type === TOKEN_TYPE.PLUS ||
+           this.currentToken.type === TOKEN_TYPE.MINUS
         ) {
             const token = this.currentToken;
-            if (token.tokenType === TOKEN_TYPE.PLUS) {
+            if (token.type === TOKEN_TYPE.PLUS) {
                 this.eat(TOKEN_TYPE.PLUS);
             }
-            if (token.tokenType === TOKEN_TYPE.MINUS) {
+            if (token.type === TOKEN_TYPE.MINUS) {
                 this.eat(TOKEN_TYPE.MINUS);
             }
             node = new BinaryOp(node, token, this.term());
@@ -95,6 +98,6 @@ export class Parser {
     }
 
     parse() {
-        this.expr();
+       return this.expr();
     }
 }

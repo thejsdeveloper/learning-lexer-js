@@ -7,7 +7,7 @@ import { Interpreter } from './app/compiler/lib/interpreter';
 const appDiv = document.getElementById('app');
 appDiv.innerHTML = `<h1>JS Starter</h1>`;
 
-let str = '14 + 2 * (4 - - 6) / 2';
+let str = '14 + 2';
 
 const lex7 = new Lexer(str);
 
@@ -17,3 +17,5 @@ const interpreter = new Interpreter(parser);
 const result = interpreter.interpret();
 
 console.log(`Result of expression : ${result} `)
+
+appDiv.append(`${str} => ${result}`)
