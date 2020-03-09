@@ -21,3 +21,28 @@ export class Num {
     }
 }
 
+export class Compound {
+  constructor() {
+    this.children = [];
+  }
+}
+
+export class Assign {
+  constructor(left, token, right) {
+    this.left = left;
+    this.op = token;
+    this.right = right;
+  }
+}
+
+export class Var {
+  constructor(token) {
+    this.token = token;
+    this.value = token.value;
+  }
+}
+
+export class Empty {
+
+}
+

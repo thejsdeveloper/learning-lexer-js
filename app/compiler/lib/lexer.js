@@ -76,9 +76,7 @@ export class Lexer {
         this.advance();
         return new Token(TOKEN_TYPE.ASSIGN, ':=');
       }
-
       
-
       if (this.currentChar === "." && isDigit(this.peek())) {
         const value = this.scanNumber();
         return new Token(TOKEN_TYPE.INTEGER, value);
