@@ -13,5 +13,7 @@ function isAlpha(ch) {
 
 
 module.exports = {
-    isDigit
+    isDigit,
+    isAlpha,
+    isAlNum
 }
