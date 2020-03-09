@@ -20,9 +20,8 @@ appDiv.innerHTML = `<h1>JS Starter</h1>`;
 
 // appDiv.append(`${str} => ${result}`)
 
-const lexer = new Lexer("BEGIN a := 2; END.");
-console.log(lexer.getNextToken());
-console.log(lexer.getNextToken());
-console.log(lexer.getNextToken());
-console.log(lexer.getNextToken());
-console.log(lexer.getNextToken());
+const pro = `BEGIN BEGIN number := 2; a := number; b := 10 * a + 10 * number / 4; c := a - - b END;  x := 11; END.`
+
+const lexer = new Lexer(pro);
+const parser = new Parser(lexer);
+console.log(parser.parse())

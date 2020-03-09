@@ -1,5 +1,5 @@
 TOKEN_TYPE = {
-    INTEGER: 'INTEGER',
+    'INTEGER': 'INTEGER',
     PLUS: 'PLUS',
     MINUS: 'MINUS',
     MUL: 'MUL',
