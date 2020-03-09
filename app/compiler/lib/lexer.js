@@ -11,7 +11,7 @@ export class Lexer {
   peek() {
     const peekPos = this.pos + 1;
     if (peekPos < this.str.length - 1) {
-      return this.str.charAt(this.peekPos);
+      return this.str.charAt(peekPos);
     } else {
       return null;
     }
@@ -61,7 +61,7 @@ export class Lexer {
 
   getNextToken() {
     while (this.currentChar !== null) {
-      
+
       if (this.currentChar === " ") {
         this.skipWhiteSpace();
         continue;
