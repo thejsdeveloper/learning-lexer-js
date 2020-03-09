@@ -55,7 +55,7 @@ export class Parser {
       this.eat(TOKEN_TYPE.RPREN);
       return node;
     } else {
-      const node = Var();
+      const node = this.variable();
       return node;
     }
   }
@@ -149,7 +149,7 @@ export class Parser {
   }
 
   compoundStatement() {
-    this.eat(TOKEN_TYPE.BIGIN);
+    this.eat(TOKEN_TYPE.BEGIN);
     const nodes = this.statementList();
     this.eat(TOKEN_TYPE.END);
 
