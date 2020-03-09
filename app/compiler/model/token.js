@@ -6,7 +6,13 @@ TOKEN_TYPE = {
     DIV: 'DIV',
     EOF: 'EOF',
     LPREN: 'LPREN',
-    RPREN: 'RPREN'
+    RPREN: 'RPREN',
+    BEGIN: 'BEGIN',
+    END: 'END',
+    DOT: 'DOT',
+    ID: 'ID',
+    ASSIGN: 'ASSIGN',
+    SEMI: 'SEMI'
 };
 
 class Token {
