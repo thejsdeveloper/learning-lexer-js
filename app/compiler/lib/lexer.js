@@ -1,4 +1,4 @@
-import { isDigit, isAlnum, isAlpha } from "../../utility/helper";
+import { isDigit, isAlNum, isAlpha } from "../../utility/helper";
 import { TOKEN_TYPE, Token } from "../model/token";
 import { RESERVE_KEYWORD } from '../../utility/reserve-keyword';
 export class Lexer {
@@ -30,7 +30,7 @@ export class Lexer {
   id() {
     let result = '';
 
-    while (this.currentChar !== null && isAlnum(this.currentChar)) {
+    while (this.currentChar !== null && isAlNum(this.currentChar)) {
       result += this.currentChar;
       this.advance();
     }
