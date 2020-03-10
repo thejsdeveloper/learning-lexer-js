@@ -38,8 +38,8 @@ export class Lexer {
     return RESERVE_KEYWORD.get(result) || new Token(TOKEN_TYPE.ID, result);
   }
 
-  skipWhiteSpace() {
-    while (this.currentChar === " ") {
+  skipChar() {
+    while (this.currentChar === " " || this.currentChar === '\n' || this.currentChar === '\t') {
       this.advance();
     }
   }
@@ -61,9 +61,8 @@ export class Lexer {
 
   getNextToken() {
     while (this.currentChar !== null) {
-debugger
-      if (this.currentChar === " ") {
-        this.skipWhiteSpace();
+      if (this.currentChar === " " || this.currentChar === '\n' || this.currentChar === '\t') {
+        this.skipChar();
         continue;
       }
 
