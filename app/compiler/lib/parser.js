@@ -7,7 +7,7 @@ import {
   Compound,
   Assign,
   Var,
-  Empty
+  NoOp
 } from "../model/ast";
 
 export class Parser {
@@ -128,7 +128,8 @@ export class Parser {
       return this.compoundStatement();
     }
 
-    return Empty();
+    const node = new NoOp();
+    return node;
   }
 
   statementList() {

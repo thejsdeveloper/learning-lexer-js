@@ -3,6 +3,9 @@
 import { Lexer } from "./app/compiler/lib/lexer";
 import { Parser } from "./app/compiler/lib/parser";
 import { Interpreter } from "./app/compiler/lib/interpreter";
+
+const fs = require('fs');
+
 // Write Javascript code!
 const appDiv = document.getElementById("app");
 appDiv.innerHTML = `<h1>JS Starter</h1>`;
@@ -28,6 +31,9 @@ appDiv.innerHTML = `<h1>JS Starter</h1>`;
 // console.log(lexer.getNextToken());
 // console.log(lexer.getNextToken());
 // console.log(lexer.getNextToken());
+console.log(fs)
+
+const text = fs.readFileSync('program.text');
 
 
 

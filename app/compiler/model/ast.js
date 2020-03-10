@@ -42,7 +42,8 @@ export class Var {
   }
 }
 
-export class Empty {
-
+export class NoOp {
+  constructor() {
+  }
 }
 
