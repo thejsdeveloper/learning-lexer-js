@@ -42,9 +42,6 @@ const text = `BEGIN
 END.`
 
 
-
-const pro = `BEGIN BEGIN num := 2; a := num; b := 10 * a + 10 * num / 4; c := a - - b END;  x := 11; END.`
-
 const lexer = new Lexer(text);
 const parser = new Parser(lexer);
 console.log(parser.parse())
